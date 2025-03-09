@@ -26,7 +26,7 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - dito tayo magstart - - - - - - - - - - - - - - - - - - - - - - */
 
 body {
-  text-align: center;
+  text-align: center !important;
 }
 
 main {
@@ -34,35 +34,276 @@ main {
   background-image: linear-gradient(90deg, blue, navy);
   border: 3px, inset, black;
   max-width: 50vw; /* 50% of viewport width */
-  min-height: 40vh; /* 50% of viewport height */
+  min-height: 50vh; /* 50% of viewport height */
+  padding-bottom: 10px;
 }
 
 .card-container {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  align-items: center;
+  gap: 12px;
   padding: 0;
-  max-width: 50%;   /* 50% of the main {} max-width */
+  max-width: 65%;   /* 65% of the main {} max-width */
   margin: 0 auto;   /* Center the list */
   flex-wrap: wrap;  /* to automatically avoid going over max width */
 }
 
+.btn {
+  border-radius: 16px !important;
+  border: 3px, solid, turquoise !important;
+  
+}
 .btn-text {
-  font-size: 20px;
+  font-size: 18px;
+  margin: 10px auto;
+  width: 35%;
 }
 
 .btn-emoji {
-  font-size: 28px;
-  border-radius: 16px;
-  border: 3px, solid, turquoise;
-  height: 60px;
-  width: 60px;
   cursor: pointer;
-  line-height: 2px;
+  line-height: 1px;
+  font-size: 30px;
+  height: 85%;
+  width: 85%;
+
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  perspective: 500px;
+}
+
+.card-item {
+  border-radius: 22px;
+  border: 3px, solid, black;
+  height: 70px; 
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.btn-text:hover {
+  background-color: rgb(140, 200, 223);
+}
+
+.btn-emoji.btn--emoji__front:hover, .btn-emoji.btn--emoji__back--selected:hover {
+  background-color: peachpuff;
+}
+
+.btn-emoji.btn--emoji__front:focus, .btn-emoji.btn--emoji__back--selected:focus {
+  background-color: peachpuff
+}
+
+.btn--emoji__front {
+  font-size: 40px !important;
+  font-weight: bold;
+}
+
+.btn--emoji__back--selected, .btn--emoji__back--matched, .card-item.card-item--matched {
+  cursor: default;
+  transform: rotateY(180deg);
+}
+
+/* .card-item.card-item--matched, .card-item.card-item--selected {
+  pointer-events: none;
+} */
+
+.card-item.card-item--selected {
+  transform: rotateY(180deg);
+}
+
+.card-item.card-item--matched {
+  background-color: rgb(0, 160, 0);
+}
+.btn--emoji__back--matched {
+  background-color: rgb(50, 255, 50);
+  color: white;
+  text-shadow: 1px 1px white;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+    clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  width: 1px;
+  padding: 0;
+  overflow: hidden;
+  position: absolute;
+  max-width: 65%;
+}
+
+.p--large {
+  font-size: 25px;
+}
+
+.p--regular {
+  font-size: 20px;
+}
+
+.wrapper.wrapper--accent {
+  background-color: aquamarine;
+  border: 5px double black;
+  border-radius: 10px;
+  max-width: 65%;
+  margin: 10px auto;
+}
+
+/* media queries */
+
+@media (min-width: 901px) and (max-width: 1024px) {
+  
+  main {
+    padding-bottom: 10px;
+  }
+
+  .card-container {
+    gap: 10px;
+    max-width: 70%;
+  }
+
+  .btn-text {
+    font-size: 16px;
+    margin: 5px auto;
+  }
+
+  .btn-emoji {
+    line-height: 0.5px;
+    font-size: 18px;
+  }
+  
+  .card-item {
+    border-radius: 10px;
+    border: 3px, solid, black;
+    height: 50px; 
+    width: 50px;
+  }
+
+  .btn--emoji__front {
+    font-size: 20px !important;
+    font-weight: bold;
+  }
+
+  .p--large {
+    font-size: 20px;
+  }
+
+  .p--regular {
+    font-size: 15px;
+  }
+}
+
+/* Styles for tablets */
+@media /*(min-width: 768px) and */(max-width: 900px) {
+  
+  main {
+    padding-bottom: 5px;
+  }
+
+  .card-container {
+    gap: 8px;
+    max-width: 80%;
+  }
+
+  .btn {
+    border-radius: 12px !important;
+    border: 3px, solid, turquoise !important;
+  }
+
+  .btn-text {
+    font-size: 12px;
+    margin: 5px auto;
+  }
+
+  .btn-emoji {
+    line-height: 0.5px;
+    font-size: 18px;
+  }
+  
+  .card-item {
+    border-radius: 10px;
+    border: 3px, solid, black;
+    height: 50px; 
+    width: 50px;
+  }
+
+  .btn--emoji__front {
+    font-size: 20px !important;
+    font-weight: bold;
+  }
+
+  .p--large {
+    font-size: 16px;
+  }
+
+  .p--regular {
+    font-size: 12px;
+  }
+}
+
+@media /*(min-width: 375px) and */(max-width: 767px) {
+
+  main {
+    max-width: 80vw;
+    min-height: 80vh;
+    padding-bottom: 5px;
+  }
+
+  .card-container {
+    gap: 8px;
+    max-width: 90%;
+  }
+
+  .btn {
+    border-radius: 12px !important;
+    border: 3px, solid, turquoise !important;
+  }
+
+  .btn-text {
+    font-size: 12px;
+    margin: 5px auto;
+  }
+
+  .btn-emoji {
+    line-height: 0.5px;
+    font-size: 18px;
+  }
+
+  .card-item {
+    border-radius: 10px;
+    border: 3px, solid, black;
+    height: 50px; 
+    width: 50px;
+  }
+
+  .btn--emoji__front {
+    font-size: 20px !important;
+    font-weight: bold;
+  }
+
+  .wrapper.wrapper--accent {
+    max-width: 90%;
+    margin: 5px auto;
+  }
+
+  .p--large {
+    font-size: 16px;
+  }
+
+  .p--regular {
+    font-size: 12px;
+  }
 }
 
 
+
+
+
+/* - - - - - - - - - - - - - - - - - - - - - - - dito tayo magstatapos - - - - - - - - - - - - - - - - - - - - - - */
 
 /* @keyframes App-logo-spin {
   from {

@@ -11,12 +11,12 @@ function decodeHtmlEntities(text) {
 function MemoryCard({ handleClick, data, selectedCards, matchedCards }) {
     
     const emojiEl = data.map((emoji, index) => {
-        const matchedCardsEntry = matchedCards.find(btnClicked => btnClicked.index === index)
         const selectedCardsEntry = selectedCards.find(btnClicked => btnClicked.index === index)
-        
+        const matchedCardsEntry = matchedCards.find(btnClicked => btnClicked.index === index)
+
         const cardStyle =
-            matchedCardsEntry ? "card-item--matched" :
             selectedCardsEntry ? "card-item--selected" :
+            matchedCardsEntry ? "card-item--matched" :
             ""
         /* this is equivalent to if else condition,
             if (selectedCardsEntry) {
@@ -33,11 +33,8 @@ function MemoryCard({ handleClick, data, selectedCards, matchedCards }) {
             <li key={index} className={`card-item ${cardStyle}`}>
                 {/* string interpolation, Backticks (` `) → Used for template literals, allowing us to mix fixed text with variables.
                 Varying values of cardStyle may give us different styling in css code.*/}
-                {/* render emojibutton */}
                 <EmojiButton
                     handleClick={() => handleClick(emoji.name, index)}
-                    index = {index}
-                    emoji = {emoji}
                     selectedCardsEntry = {selectedCardsEntry}
                     matchedCardsEntry = {matchedCardsEntry}
                     /* call DOMParser function to decode htmlcode */

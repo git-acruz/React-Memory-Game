@@ -2,9 +2,6 @@ import { useState, useEffect } from 'react';
 import Form from './components/Form';
 import MemoryCard from './components/MemoryCard';
 import './App.css';
-import AssistiveTechInfo from './components/AssistiveTechInfo';
-import GameOver from './components/GameOver';
-import ErrorCard from './components/ErrorCard';
 
 
 function App() {
@@ -19,12 +16,9 @@ function App() {
   
   const [matchedCards, setmatchedCards] = useState([])
 
-  const [areAllCardsMatched, setareAllCardsMatched] = useState(false)
+  const [isGameOver, setisGameOver] = useState(false)
 
-  const [isError, setisError] = useState(false)
-
-  console.log(isError)
-  // console.log(areAllCardsMatched)
+  console.log(isGameOver)
   // useEffect hook
   useEffect(() => {
     if (selectedCards.length === 2 && selectedCards[0].name === selectedCards[1].name) {
@@ -35,9 +29,9 @@ function App() {
     code here will run whenever the value of "selectedCards" changes */
   
   useEffect(() => {
-    /* trigger the condition if emojisData is not empty and all button emojis have been matched */
+    {/* trigger the condition if emojisData is not empty and all button emojis have been matched */}
     if (emojisData.length && matchedCards.length === emojisData.length) {
-      setareAllCardsMatched(true)
+      setisGameOver(true)
     }
   }, [matchedCards])
 
@@ -45,10 +39,9 @@ function App() {
       e.preventDefault()
 
       try {
-        throw new Error("throwing an error")
-        const response = await fetch("http://localhost:5000/emoji");
+        const response = await fetch
         // await pauses execution until the response is received.
-        // ("https://emojihub.yurace.pro/api/all/category/animals-and-nature")
+        ("https://emojihub.yurace.pro/api/all/category/animals-and-nature")
 
         if (!response.ok) {
           // error handling for error 404 not found or 500 server down
@@ -61,7 +54,7 @@ function App() {
         
         const emojisArray = getEmojisArray(dataSlice) // declare new array
         // console.log(data)
-        
+
         setemojisData(emojisArray)
         
         setIsGameOn(true)
@@ -124,64 +117,34 @@ function App() {
 
       } catch (error) {
         console.log(error)
-        setisError(true);
       }
       
     }
 
     function turnCard(name, index) {
-      //console.log(matchedCards)
       // console.log({name}, {index})
 
       /* use .find() method to FIND the clicked emoji in the selectedCards.
         Normally it'll start as undefined if there's no card has been clicked at the start */
-
-      // commenting these because it was refactored already in EmojiButton.js component
-
-      /* const selectedCardsEntry = selectedCards.find(btnClicked => btnClicked.index === index)
+      const selectedCardsEntry = selectedCards.find(btnClicked => btnClicked.index === index)
 
       if (!selectedCardsEntry && selectedCards.length < 2) {
         setselectedCards(prevCards => [...prevCards, { name, index }]);
       } else if (!selectedCardsEntry && selectedCards.length === 2) {
         setselectedCards([{ name, index }])
       }
-        */
-      
-      // rewriting code
-      if (selectedCards.length < 2) {
-        setselectedCards(prevCards => [...prevCards, { name, index }]);
-      } else if (selectedCards.length === 2) {
-        setselectedCards([{ name, index }])
-      }
-    }
-
-    function resetGame() {
-      setareAllCardsMatched(false);
-      setmatchedCards([]);
-      setselectedCards([]);
-      setIsGameOn(false);
-    }
-
-    function resetError() {
-      
-      setisError(false)
     }
   
     return (
-      // rendering
       <main>
         <h1>Memory</h1>
-        {!isGameOn && !isError && <Form handleSubmit={startGame} />}
-        {isGameOn && !areAllCardsMatched && <AssistiveTechInfo emojisData={emojisData} matchedCards={matchedCards}/> }
-        {areAllCardsMatched && <GameOver handleClick={resetGame}/>}
+        {!isGameOn && <Form handleSubmit={startGame} />}
         {isGameOn && <MemoryCard handleClick={turnCard}
           data={emojisData}
           selectedCards={selectedCards}
           matchedCards={matchedCards}/>}
         {/* pass emojisData as the value of prop data to memorycard component.
           also pass selectedCards and matchedCards as props to memorycard component. */}
-        {isError && <ErrorCard handleClick={resetError}/>}
-        {/* pass the resetError function through props to the RegularButton in the ErrorCard */}
       </main>
       // <div className="App">
 
