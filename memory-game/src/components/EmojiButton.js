@@ -1,4 +1,3 @@
-import { useState } from "react"
 
 export default function EmojiButton({content, handleClick, selectedCardsEntry, matchedCardsEntry, index, emoji }) {
     /* Destructuring - use props as parameters to extract values */
@@ -19,7 +18,7 @@ export default function EmojiButton({content, handleClick, selectedCardsEntry, m
         <button
             className={`btn btn-emoji ${btnStyle}`}
             onClick={ selectedCardsEntry ? null : handleClick }
-            disabled = { matchedCardsEntry }
+            disabled ={ matchedCardsEntry }
             aria-label={ `Position ${index}. ${btnAria}` }
             aria-live="polite">
                 {btnContent}

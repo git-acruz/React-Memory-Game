@@ -1,32 +1,32 @@
 /* .App {
+   text-align: center;
+ }
+ 
+ .App-logo {
+   height: 40vmin;
+   pointer-events: none;
+ }
+ 
+ 
+ .App-header {
+   background-color: #282c34;
+   min-height: 100vh;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   font-size: calc(10px + 2vmin);
+   color: white;
+ }
+ 
+ .App-link {
+   color: #61dafb;
+ } */
+ 
+ /* - - - - - - - - - - - - - - - - - - - - - - - dito tayo magstart - - - - - - - - - - - - - - - - - - - - - - */
+ 
+ body {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-} */
-
-/* - - - - - - - - - - - - - - - - - - - - - - - dito tayo magstart - - - - - - - - - - - - - - - - - - - - - - */
-
-body {
-  text-align: center !important;
 }
 
 main {
@@ -52,12 +52,13 @@ main {
 
 .btn {
   border-radius: 16px !important;
-  border: 3px, solid, turquoise !important;
-  
+  border: 5px, solid, turquoise !important;
+
 }
 .btn-text {
+  cursor: grab;
   font-size: 18px;
-  margin: 10px auto;
+  margin: 5px auto;
   width: 35%;
 }
 
@@ -81,7 +82,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
 }
 
 .btn-text:hover {
@@ -134,7 +135,6 @@ main {
   padding: 0;
   overflow: hidden;
   position: absolute;
-  max-width: 65%;
 }
 
 .p--large {
@@ -145,18 +145,56 @@ main {
   font-size: 20px;
 }
 
-.wrapper.wrapper--accent {
-  background-color: aquamarine;
+.wrapper {
+  background-color: cyan;
   border: 5px double black;
+  padding: 5px;
+  max-width: 65%;
+  margin: 0 auto;
+}
+
+.wrapper.wrapper--accent {
   border-radius: 10px;
   max-width: 65%;
   margin: 10px auto;
 }
 
+.form--outerwrapper {
+  border: 2px solid turquoise;
+  width: 65%;
+  margin: 0 auto;
+}
+
+.form--innerwrapper {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2% 0;
+}
+
+label {
+  width: 25%;
+  padding: 3px 10px;
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+option {
+  text-align: left;
+}
+
+#category, #number {
+  background-image: linear-gradient(75deg, aquamarine, lightgreen);
+  font-size: 1rem;
+  padding: 3px 0;
+  width: 60%;
+}
+
 /* media queries */
 
 @media (min-width: 901px) and (max-width: 1024px) {
-  
+
   main {
     padding-bottom: 10px;
   }
@@ -168,14 +206,14 @@ main {
 
   .btn-text {
     font-size: 16px;
-    margin: 5px auto;
+    margin: 2px auto;
   }
 
   .btn-emoji {
     line-height: 0.5px;
-    font-size: 18px;
+    font-size: 16px;
   }
-  
+
   .card-item {
     border-radius: 10px;
     border: 3px, solid, black;
@@ -199,7 +237,7 @@ main {
 
 /* Styles for tablets */
 @media /*(min-width: 768px) and */(max-width: 900px) {
-  
+
   main {
     padding-bottom: 5px;
   }
@@ -216,14 +254,14 @@ main {
 
   .btn-text {
     font-size: 12px;
-    margin: 5px auto;
+    margin: 2px auto;
   }
 
   .btn-emoji {
     line-height: 0.5px;
-    font-size: 18px;
+    font-size: 16px;
   }
-  
+
   .card-item {
     border-radius: 10px;
     border: 3px, solid, black;
@@ -242,6 +280,16 @@ main {
 
   .p--regular {
     font-size: 12px;
+  }
+
+  label {
+    width: 20%;
+    padding: 2px 10px;
+    font-size: 0.90rem;
+  }
+
+  #category, #number {
+    font-size: 0.90rem;
   }
 }
 
@@ -265,12 +313,12 @@ main {
 
   .btn-text {
     font-size: 12px;
-    margin: 5px auto;
+    margin: 2px auto;
   }
 
   .btn-emoji {
     line-height: 0.5px;
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .card-item {
@@ -297,9 +345,17 @@ main {
   .p--regular {
     font-size: 12px;
   }
+
+  label {
+    width: 20%;
+    padding: 2px 10px;
+    font-size: 0.85rem;
+  }
+
+  #category, #number {
+    font-size: 0.85rem;
+  }
 }
-
-
 
 
 
