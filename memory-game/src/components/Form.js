@@ -1,18 +1,7 @@
 import { useRef, useEffect } from 'react';
-import { useRef, useEffect } from 'react';
 import RegularButton from './RegularButton';
 import Select from './Select';
 
-function Form({ handleSubmit, handleChange, isFirstRender }) {
-    const divRef = useRef(null)
-    
-        useEffect(() => {
-            if (!isFirstRender) {
-                divRef.current.focus() /* focus method to navigate to the focused element
-                                        it will only work if you used keyboard to navigate*/
-            }
-        }, [])
-        
 function Form({ handleSubmit, handleChange, isFirstRender }) {
     const divRef = useRef(null)
     
