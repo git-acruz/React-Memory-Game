@@ -29,6 +29,7 @@ function App() {
 
   const [isError, setisError] = useState(false)
   
+  
   // useEffect hook
   useEffect(() => {
     if (selectedCards.length === 2 && selectedCards[0].name === selectedCards[1].name) {
