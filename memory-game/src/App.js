@@ -183,7 +183,6 @@ function App() {
         {isError && <ErrorCard handleClick={resetError}/>}
         {/* pass the resetError function through props to the RegularButton in the ErrorCard */}
       </main>
-      // <div className="App">
 
     // </div>
     );

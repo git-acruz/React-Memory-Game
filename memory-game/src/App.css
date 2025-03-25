@@ -146,8 +146,6 @@ main {
 }
 
 .wrapper.wrapper--accent {
-  background-color: aquamarine;
-  border: 5px double black;
   border-radius: 10px;
   max-width: 65%;
   margin: 10px auto;
