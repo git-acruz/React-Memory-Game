@@ -16,5 +16,6 @@ function AssistiveTechInfo({emojisData, matchedCards}) {
     - True: the entire region is treated as a single unit and all content (whether static or dynamic)
       is read aloud whenever any part of it is changing.
     - False: the region is not treated as a unit. Only changed content is read aloud */
+/* for users who have vision disability */
 
 export default AssistiveTechInfo;
