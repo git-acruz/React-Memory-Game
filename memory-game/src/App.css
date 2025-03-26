@@ -293,10 +293,10 @@ option {
   }
 }
 
-@media /*(min-width: 426px) and */(max-width: 767px) {
+@media /*(min-width: 375px) and */(max-width: 767px) {
 
   main {
-    max-width: 80vw;
+    max-width: 85vw;
     min-height: 50vh;
     padding-bottom: 5px;
   }
@@ -339,7 +339,7 @@ option {
   }
 
   .form--outerwrapper {
-    width: 75%;
+    width: 90%;
   }
 
   .p--large {
@@ -362,7 +362,7 @@ option {
   }
 }
 
-@media (max-width: 426px) {
+@media (max-width: 376px) {
 
   main {
     max-width: 95vw;
@@ -372,7 +372,7 @@ option {
 
   .card-container {
     gap: 5px;
-    max-width: 80%;
+    max-width: 90%;
   }
 
   .btn {
