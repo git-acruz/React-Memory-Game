@@ -362,7 +362,7 @@ option {
   }
 }
 
-@media (max-width: 376px) {
+@media (max-width: 390px) {
 
   main {
     max-width: 95vw;
